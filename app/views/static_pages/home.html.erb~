@@ -1,25 +1,5 @@
 <% if signed_in? %>
-  <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-  </div>
+  <%=render 'if_sign_in'%>
 <% else %>
-<div class="center hero-unit">
-  <h1>Welcome to SkyMe</h1>
-
-  <h2>
-    This is a demo based on Ruby on Rails-<%=link_to "SkyMe",root_path%>
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, :class => "btn btn-large btn-primary" %>
-</div>
-
-<%= link_to image_tag("me.jpg", :alt=> "Steven"), 'http://www.renren.com/336646641/profile' %>
-
+  <%=render 'not_sign_in'%>
 <%end%>
