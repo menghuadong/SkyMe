@@ -1,6 +1,8 @@
 class MicropostsController < ApplicationController
+
+  #在执行某个method之前 先执行相关函数，类似于before_save
   before_filter :signed_in_user, :only=> [:create, :destroy]
-  before_filter :correct_user_1,   :only=> :destroy
+  before_filter :correct_user,   :only=> :destroy
 
   def index
   end
@@ -23,7 +25,7 @@ class MicropostsController < ApplicationController
 
   private
 
-    def correct_user_1
+    def correct_user
       @micropost = current_user.microposts.find_by_id(params[:id])
       redirect_to root_path if @micropost.nil?
     end

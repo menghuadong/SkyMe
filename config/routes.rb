@@ -1,12 +1,17 @@
 SkyMe::Application.routes.draw do
+
+  #类似于域名+/user/1/followers 或者following
   resources :users do
     member do
       get :following, :followers
     end
   end
+  #资源的概念 涉及到四个动词 get put post delete
   resources :sessions,:only=>[:new,:create,:destroy]
   resources :microposts, :only=> [:create, :destroy]
   resources :relationships, :only=> [:create, :destroy]
+
+  #路由设定 namedRoute
   root  :to => "static_pages#home"
 
   match "/contact" => "static_pages#contact"

@@ -9,11 +9,12 @@ gem 'bootstrap-will_paginate', '0.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Rails的三种运行环境 development test 和production，指定不同gem应用在不同的开发环境
 group:development,:test do
   gem 'sqlite3','1.3.6'
   gem 'rspec-rails','2.11.0'
 end
-
+# 指定在生产环境使用heroku的数据库pg，其他环境默认使用rails的sqlite3
 group :production do
   gem 'pg', '0.12.2'
 end
